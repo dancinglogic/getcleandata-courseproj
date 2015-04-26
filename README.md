@@ -11,13 +11,12 @@ been broken up into testing and training data, with three files in each set rele
 * feature vectors
 * activity labels, as integers from 1:6
 
-For more information on the full experiment, see 
-<a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">
+More information on the full experiment may be found [here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones).
 
 ## run_analysis.R
 
 This R script takes the initial data and creates a new tidy data set as follows:
-* Within each of the train and test folders, the three files were combined so that we had subject id, features, and activity label on a single line.
+* Within each of the train and test folders, the three files with subject, activity, and feature information were combined so that we had subject id, features, and activity label on a single line.
 The columns were labeled with the names of the features.
 * The two data sets resulting from the previous step were combined to provide a single data set.
 * Only those features containing 'mean' or 'std' were retained.
@@ -30,7 +29,8 @@ subject - A number from 1-30 identifying the volunteer to whom the readings on t
 
 activity label - The activity being performed by the volunteer. One of "WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING".
 
-As described in the original work,
+### As described in the original work:
+
 "The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. 
 These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly , the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz.
 
@@ -41,6 +41,8 @@ e the 'f' to indicate frequency domain signals).
 
 These signals were used to estimate variables of the feature vector for each pattern:
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions."
+
+### Our features:
 
 For each feature in the original work that was a mean or a standard deviation, we have take the mean of that feature
 across all readings for each (subject, activity) pair.  We have denoted this by renaming our features as MEAN(original_feature).
