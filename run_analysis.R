@@ -100,6 +100,15 @@ wide_format <- dcast(tidy_data,
 print("Dimensions of wide_format data:")
 print(dim(wide_format))
 
+# Since we have computed the average of each feature we started with, we 
+# should probably change the column names to reflect that.
+new_mean_features <- sapply(features_mean, 
+                            function(x) {paste0( "MEAN(",x,")")})
+new_std_features <- sapply(features_std,
+                           function(x) {paste0("STD(", x, ")")})
+new_features <- c("subject", "activity",new_mean_features, new_std_features)
+names(wide_format) <- new_features
+
 # If we wanted to put the data in narrow format:
 # narrow_format <- melt(wide_format, id.vars=c("subject", "activity"))
 
